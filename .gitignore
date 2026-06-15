@@ -1,0 +1,35 @@
+# secrets / local env
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# editor / tooling local state
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# local-only progress notes (personal, not for the repo)
+docs/PROGRESS.local.md
+*.local.md
+
+# recon-phase scratch scripts (superseded by crawl_sample.py; kept locally)
+sites/*/test_scrape.py
+
+# scraped data + build artifacts (large, not for version control)
+sites/*/raw/
+sites/*/images/
+sites/*/captures/
+sites/*/logs/
+sites/*/sample_data/
+data/
+
+# generated SQLite DB + WAL sidecar files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Furniture DB</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Furniture DB</h1>
+    <form id="search-form">
+      <input type="text" id="q" name="q" placeholder="Search by description, material, style..." autocomplete="off" />
+      <label class="file-label">
+        <input type="file" id="image-input" accept="image/*" />
+        <span id="image-name">Search by image</span>
+      </label>
+      <select id="site-filter">
+        <option value="">All sites</option>
+      </select>
+      <input type="number" id="price-min" placeholder="Min AED" min="0" />
+      <input type="number" id="price-max" placeholder="Max AED" min="0" />
+      <button type="submit">Search</button>
+    </form>
+    <div class="threshold-row">
+      <label for="similarity-threshold">Min similarity: <span id="similarity-value">0%</span></label>
+      <input type="range" id="similarity-threshold" min="0" max="100" value="0" step="1" />
+    </div>
+    <div id="status"></div>
+  </header>
+
+  <main>
+    <section id="search-view">
+      <div id="results-info"></div>
+      <div id="results" class="grid"></div>
+    </section>
+
+    <section id="detail-view" class="hidden">
+      <button class="back-btn" id="back-btn">&larr; Back to results</button>
+      <div id="detail-content"></div>
+    </section>
+
+    <section id="graph-view" class="hidden">
+      <button class="back-btn" id="back-from-graph">&larr; Back</button>
+      <div class="graph-controls">
+        <label><input type="radio" name="graph-mode" value="semantic" checked /> Semantic</label>
+        <label><input type="radio" name="graph-mode" value="visual" /> Visual</label>
+        <span id="graph-status"></span>
+      </div>
+      <div id="cy"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+  <script src="/static/app.js"></script>
+  <script src="/static/graph.js"></script>
+</body>
+</html>
